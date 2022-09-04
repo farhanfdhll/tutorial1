@@ -1,12 +1,21 @@
 import React from 'react'
+import { useState } from 'react';
 
 const Content = () => {
-    const name = "Farhan";
+    const [name, setName] = useState('Farhan');
+    // const name = "Farhan"; // this is vanilla js use useState instead ^^^
+
+    const [count, setCount] = useState(0);
+    const incrementCount = () =>{
+        setCount(count+1)
+    }
+    
     const handleRandomName =() =>{
         const names = ['Bob', 'Kevin', 'Rully', 'Ronny'];
         const int = Math.floor(Math.random()*4);
 
-        return names[int]
+        setName(names[int]);
+        // return names[int]
     }
 
     const handleClick = () => {
@@ -20,6 +29,11 @@ const Content = () => {
     const handleClick3 = (e) => {
         console.log(e.target.innerText)
     }
+
+    const handleClick4 = () => {
+        incrementCount()
+        console.log(count)
+    }
   return (
     
     <main>
@@ -29,10 +43,13 @@ const Content = () => {
         {/* <p>{{React cannot display an Object}}</p> */}
         {/* <p>{true == false}</p> React cannot display boolean value*/}
 
-        <p>Today's random companion name is <strong>{handleRandomName()}</strong></p>
         <button onClick={handleClick}> Click Me! </button>
         <button onClick={() => handleClick2('Dave')}> Click Me Again! </button>
         <button onClick={(e) => handleClick3(e)}> Click Me Event! </button>
+        
+        <button onClick={handleRandomName}> Change Name! </button>
+        
+        <button onClick={handleClick4}> Print Counter </button>
     </main>
   )
 }

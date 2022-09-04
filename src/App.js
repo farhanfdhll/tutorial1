@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
 
 function App() {
 
@@ -13,17 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-     
-        <p>My name is <strong>{name}</strong></p>
-        {/* <p>{[1, 2, 4]}</p> */}
-        {/* <p>{"This is a Javascript expression"}</p> */}
-        {/* <p>{{React cannot display an Object}}</p> */}
-        {/* <p>{true == false}</p> React cannot display boolean value*/}
-
-        <p>Today's random name is <strong>{handleRandomName()}</strong></p>
-      </header>
+      <Header></Header>
       
     </div>
   );
